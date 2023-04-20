@@ -1,0 +1,239 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+%\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{afterpage}
+%\usepackage{showlabels}
+% \usepackage{epstopdf}
+% \usepackage{pdfpages}
+\usepackage{geometry}
+%\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{times}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+\newcommand{\s}{\textrm{s}}
+\newcommand{\m}{\textrm{m}}
+\newcommand{\kg}{\textrm{kg}}
+\newcommand{\N}{\textrm{N}}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\newcommand{\shortlist}{%
+\parindent 0in%
+\parskip   0in%
+\itemsep   0in%
+\topsep    0in%
+\parsep    0in%
+}
+
+\setlength{\parindent}{0in}
+
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\newcommand{\soln}[2] {\textit{Solution:} #2}
+
+%\renewcommand{\soln}[2] {\vspace*{#1}}
+
+\newcommand{\Title}{PHYS 615 -- HW 10}
+
+\begin{document}
+
+\begin{center}
+      {\Large\bfseries\Title}
+
+\end{center}
+\bigskip
+\bigskip
+
+\textbf{Types of homework questions}
+\begin{itemize}\shortlist
+      \item	RQ (Reading questions):  prompt you to go back to the text and read and think about the text more carefully and explain in your own words. While not directly tested in quizzes, can help you think more deeply about quiz questions.
+      \item	BF (Building foundations):  gives you an opportunity to build and practice foundational skills that you have, presumably, seen before.
+      \item	TQQ (typical quiz questions):   Similar questions (though perhaps longer or shorter) will be asked on quizzes.  But the difficulty level and skills tested will be similar.
+      \item Design (D):  These are questions in which you are given a desired outcome and asked to figure out how to make it happen.  These will often also be TQQ’s, but always starting with desired motion/behavior as the given.
+      \item	COMP (Computing): computing questions often related to TQQ but will never be asked on a quiz (since debugging can take so long).  You will need to do at least four computing questions over the semester
+      \item	FC (free choice): allows you to decide where to put your time.  Any of the following are possible:  work through a section of the text or a lecture in detail; redo a problem from before; do an unassigned problem in the text; extend a computing project; try a problem using a different analytical approach (e.g. forces instead of conservation of energy).
+      \item ACT (in-class activity): These questions are repeats of questions (or similar to) that occurred in a previous in-class activity.
+      \item \textbf{Standard Reading Questions}: How does the reading connect with what you already know? What was something new?  Ask an "I wonder" question OR give an example applying the idea in the reading.
+\end{itemize}
+
+\textbf{Please remember to say something about the "Check/Learn" part at the end of solving a problem!}
+
+Full credit will be given at 75\% of the total points possible, so you can choose a subset of problems (you can do more / all, but the score is capped at 75\%)
+
+This homework contains some previous group activities. I'm including them here in order to try to help gradescope, but you can of course hand in the original paper version I handed out in class.
+
+\clearpage
+
+\begin{enumerate}
+
+      % \item COMP (20 points -- required) Runge-Kutta integration
+
+      %       Back an even longer while ago, we solved the skateboard in a half pipe problem numerically, and we noticed that even in the linear (small-angle) approximation, the amplitude seemed to grow over time quite substantially unless we used a tiny timestep: \url{https://github.com/germasch/hw/blob/main/notebooks/euler-skateboard.ipynb}
+
+      %       Our next goal is going to be solving projectile motion with quadratic drag, but before we try to do so (down the road), let's try to get our code to give us a more accurate numerical approximate solution.
+
+      %       Follow the tutorial at \url{https://lpsa.swarthmore.edu/NumInt/NumIntSecond.html} through "Example 1". As a first step, implement the 2nd order Runge-Kutta method to solve the 1st order ODE $\dot y = -2 y$. (As usual, you can do so in Matlab or Python).
+
+      %       Once it is working, you can now apply it to the skateboard problem, which we have also written as 1st order ODE previously. Compare the solution we got previously from the Euler method to this hopefully improved method for a timestep of $0.1$ and $0.01$.
+
+      %       Please hand in your code on Canvas, and include a brief write-up on the results you got (here or on canvas).
+
+      %       \soln{15em}{See \url{https://github.com/germasch/hw/blob/main/notebooks/rk2.ipynb}}
+
+
+      %       \clearpage
+
+      \item TQQ (10 points) \textit{Conjugate momentum to relative position}
+
+            The momentum $\vec p$ conjugate to the relative position $\vec r$ is defined with components $p_x = \partial\mathcal{L}/\partial \dot x$ and so on. Show that $\vec p = \mu \dot{\vec r}$. Prove also that in the center of mass frame, $\vec p$ is the same as the momentum of particle $\vec p_1$ (and also $-\vec p_2$).
+
+            \soln{15em}
+            {
+                  Given
+                  $$\mathcal{L} = \frac{1}{2}\mu \dot{\vec r}^2 + U(r)$$
+                  We directly find $p_x = \partial\mathcal{L}/\partial \dot x = \mu \dot x$, and the same for $y$ and $z$, so indeed, $\vec p = \mu \dot{\vec r}$.
+
+                  Since we already know that in the CM frame, $\vec r_1 = \frac{m_2}{M} \vec r$, we can find that
+                  $$\vec p_1 = m_1 \dot{\vec r}_1 = \frac{m_1 m_2}{M} \dot{\vec r} = \mu \dot{\vec r} = \vec p$$
+                  and a from $\vec r_2 = -\frac{m_1}{M} \vec r$, $\vec p_2 = - \vec p$.
+            }
+
+            \clearpage
+      \item TQQ/D (20 points) \textit{Circular orbits}
+
+            \begin{enumerate}
+                  \item
+                        Using elementary Newtonian mechanics, find the period of a mass $m$ on a circular orbit of radius $r$ around a \textbf{fixed} mass $m_2$ (under the influence of Newton's Law of Gravity).
+
+                        \soln{12em}
+                        {
+                              Let's do this with centripetal acceleration:
+                              $$
+                                    -G \frac{m_1 m_2}{r^2} = -m_1 \omega^2 r \Longrightarrow \omega = \sqrt{\frac{Gm_2}{r^3}}
+                              $$
+                              with the period being $\tau = 2\pi/omega$.
+                        }
+
+                  \item
+                        Using the separation into CM and relative motions, find the corresponding period for the case that $m_2$ is not fixed and the masses circle each other a constant distance $r$ apart. Discuss the limit of this result as $m_2 \rightarrow \infty$.
+
+                        \soln{12em}
+                        {
+                              All that changes is that the r.h.s. of Newton's Law uses the reduced mass $\mu$:
+                              $$
+                                    -G \frac{m_1 m_2}{r^2} = -\mu \omega^2 r \Longrightarrow \omega = \sqrt{\frac{Gm_1m_2}{\mu r^3}} = \sqrt{\frac{GM}{r^3}}
+                              $$
+                              If $m_2 \gg m_1$, then $M \approx m_2$, so the two results converge, as they should.
+                        }
+
+                  \item
+                        What would be the orbital period if Earth was replaced by a star of mass equal to the solar mass, with in a circular orbit, with the distance between the Sun and the star equal to the present earth-sun distance? (The mass of the sun is more than 300,000
+                        $\times$ that of Earth.)
+
+                        \soln{12em}
+                        {
+                              If $m_1 = m_2$, then $M = 2m_2$, so $\omega = \sqrt{\frac{G2m_2}{r^3}} = \sqrt{2}\sqrt{\frac{Gm_2}{r^3}}$. The frequency is higher by $\sqrt{2}$, ie., the period shorter by $1/\sqrt{2}$.
+                        }
+
+            \end{enumerate}
+
+            \clearpage
+      \item TQQ (20 points) \textit{Two masses and a spring in a plane}
+
+            Consider two particles of equal masses $m = m_1 = m_2$ attached to each other by a light straight spring (spring constant $k$, natural length $L$) and free to slide on top of a frictionless horizontal table.
+
+            \begin{enumerate}
+                  \item Write down the Lagrangian in terms of the coordinates $\vec r_1$ and $\vec r_2$ and rewrite in terms of CM and relative positions, $\vec R$ and $\vec r$, using polar coordinates $(r, \phi)$ for $\vec r$.
+
+                        \soln{12em}
+                        {
+                              We've done a lot of this in Activity 8.1, so we can just use what we did there. We started with
+                              $$
+                                    \mathcal{L} = T - U = \frac{1}{2}m_1 \dot \vec r_1^2 + \frac{1}{2}m_2 \dot \vec r_2^2 - U(|\vec r_1 - \vec r_2|)
+                              $$
+                              and go to CM and relative coordinates and find
+                              $$
+                                    \mathcal{L} = \frac{1}{2}M \dot{\vec R}^2 + \frac{1}{2}\mu \dot{\vec r}^2 - U(r)
+                              $$
+                              We're in 2-d ($x$-$y$ plane) in this problem, and we'll use polar coordinates for the relative position:
+                              $$
+                                    \mathcal{L} = \frac{1}{2}M (\dot X^2 + \dot Y^2) + \frac{1}{2}\mu (\dot r^2 + (r\dot\phi)^2) - U(r)
+                              $$
+                              Finally, let's use the potential energy for our spring:
+                              $$
+                                    \mathcal{L} = \frac{1}{2}M (\dot X^2 + \dot Y^2) + \frac{1}{2}\mu (\dot r^2 + (r\dot\phi)^2) - \frac{1}{2}k (r - L)^2
+                              $$
+
+                        }
+
+                  \item Write down and solve the Lagrange equations for the CM coordinates $X, Y$.
+
+                        \soln{12em}
+                        {
+                              Nothing new here:
+                              \begin{align*}
+                                    \frac{\partial\mathcal{L}}{\partial X} & = \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot X} \Longrightarrow 0 = M\ddot X \\
+                                    \frac{\partial\mathcal{L}}{\partial Y} & = \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot Y} \Longrightarrow 0 = M\ddot Y
+                              \end{align*}
+                              Acceleration being zero, the CM moves at constant velocity, ie., position changes as
+                              $$\vec R = \vec V_0 t + \vec R_0$$
+                        }
+
+                  \item Write down the Lagrangian equations for $r$ and $\phi$. Solve these for the two special cases that $r$ remains constant and $\phi$ remains constant. Describe the corresponding motions. In particular, show that the frequency of oscillations in the 2nd case is $\omega = \sqrt{2k/m}$.
+
+                        \soln{12em}
+                        {
+                              Since $U$ does not depend on $\phi$, The Lagrange equation for $\phi$ tells us that the generalized momentum $\frac{\partial \mathcal{L}}{\partial \dot \phi}$ is constant, and that is the angular momentum:
+                              $$l = \frac{\partial \mathcal{L}}{\partial \dot \phi} = \mu r^2 \dot \phi = const$$
+                              The Lagrange equation for $r$ is $\frac{\partial\mathcal{L}}{\partial r} = \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot r}$ and gives
+                              $$
+                                    \mu\ddot r = \mu r \dot\phi^2 - k(r - L)
+                              $$
+
+                              If $r$ is constant, then the $\phi$ equation indicates that $\dot\phi$ must be constant. The $r$ equation turns into
+                              $$
+                                    0 = \mu r \dot\phi^2 - k(r - L)
+                              $$
+                              The physical meaning is that in a co-moving frame, the spring force counters centrifugal force. One could move first term to the l.h.s., and then this equation interpreted as the spring force providing centripetal acceleration $a_c = r\omega^2$.
+
+                              If $\phi$ is constant, the $r$ equation becomes $\mu\ddot r = -k(r - L)$, which we've seen before -- the solution can be written as $r(t) = L + A \cos(\omega t - \delta)$, that is, the masses oscillate about the spring's equilibrium position.
+                        }
+
+            \end{enumerate}
+
+            \clearpage
+      \item	FC (10 points) (free choice): allows you to decide where to put your time.  Any of the following are possible: work through a section of the text or a lecture in detail; polish up a group work assignment from class; redo a problem from before; do an unassigned problem in the text; extend a computing project; try a problem using a different analytical approach (e.g. forces instead of conservation of energy).
+
+            \soln{40em}
+            {}
+
+
+      \item TQQ / ACT (40 points) Hand in Activity 8.1
+
+            \soln{1em}{See Activity 8.1 solution.}
+
+            % \item TQQ / ACT (30 points) Hand in Activity 7.4
+
+            %       \soln{1em}{See Activity 7.4 solution.}
+
+\end{enumerate}
+
+\end{document}
